@@ -1,8 +1,6 @@
-import { Dimensions, Platform } from 'react-native';
+import { Platform } from 'react-native';
 
 import colors from './colors';
-
-const { width, height } = Dimensions.get('window');
 
 export const isIos = Platform.OS === 'ios';
 
@@ -16,34 +14,34 @@ const fonts = {
 export default {
   colors,
   size: {
-    s: 10,
-    m: 12,
-    l: 14,
-    l2: 16,
-    xl: 18,
-    title1: 22,
-    title2: 30,
-    heading: 50,
+    s1: 11,
+    s2: 12,
+    body1: 14,
+    body2: 16,
+    body3: 18,
+    title1: 20,
+    title2: 24,
+    heading1: 26,
+    heading2: 30,
   },
   space: {
     n: 0,
-    s1: 4,
-    s2: 8,
-    m1: 12,
-    m2: 18,
-    l1: 24,
-    l2: 32,
-    xl: 40,
+    s1: 5,
+    m1: 10,
+    m2: 15,
+    l1: 20,
+    l2: 30,
+    l3: 40,
+    xl: 60,
+    xxl: 90,
   },
   radii: {
     n: 0,
     s1: 4,
     s2: 10,
-    m: 24,
-    l: 35,
+    m: 25,
+    l: 50,
   },
 
   getFont,
-  width,
-  height,
 };

@@ -1,7 +1,18 @@
-export const assets = [
+export const images = [
+  // welcome 0~2
+  require('../assets/images/bg1.png'),
   require('../assets/images/logo.png'),
+  require('../assets/images/enjoy.png'),
 
-  //topics 1~9
+  // authenticate 3~8
+  require('../assets/images/vector1.png'),
+  require('../assets/images/vector2.png'),
+  require('../assets/images/vector3.png'),
+  require('../assets/images/vector4.png'),
+  require('../assets/images/facebook.png'),
+  require('../assets/images/google.png'),
+
+  //topics
   require('../assets/images/topics/topic1cardbg.png'),
   require('../assets/images/topics/topic2cardbg.png'),
   require('../assets/images/topics/topic3cardbg.png'),
@@ -12,32 +23,23 @@ export const assets = [
   require('../assets/images/topics/topic8cardbg.png'),
   require('../assets/images/topics/topiccardbg.png'),
 
-  // bg 10~11
-  require('../assets/images/bg1.png'),
   require('../assets/images/bg2.png'),
 
-  //shape 12~14
   require('../assets/images/bgShape1.png'),
   require('../assets/images/bgShape2.png'),
   require('../assets/images/bgShape3.png'),
 
-  //Ellipse 15~18
   require('../assets/images/Ellipse1.png'),
   require('../assets/images/Ellipse2.png'),
   require('../assets/images/Ellipse3.png'),
   require('../assets/images/Ellipse4.png'),
 
-  // recommend 19~20
   require('../assets/images/recommend1.png'),
   require('../assets/images/recommend2.png'),
 
-  // relaxationimg 21
   require('../assets/images/relaxationimg.png'),
-  // yogi 22
   require('../assets/images/yogi.png'),
-  // enjoy 23
-  require('../assets/images/enjoy.png'),
-  //course sun 24
+
   require('../assets/images/courseSun.png'),
 ];
 
