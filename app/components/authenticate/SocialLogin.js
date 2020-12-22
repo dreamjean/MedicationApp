@@ -20,7 +20,7 @@ const SocialLogin = ({ fb, label, logo, marginTop, onPress }) => {
 
 const Wrapper = styled(RectButton)`
   ${({ fb, marginTop, theme: { colors, radii } }) => ({
-    borderColor: fb ? colors.facebookBg : colors.gray,
+    borderColor: fb ? colors.mediumBlue : colors.gray,
     borderRadius: radii.m,
     borderWidth: 1,
     marginTop,
@@ -32,16 +32,16 @@ const Container = styled.View`
   align-items: center;
 
   ${({ fb, theme: { colors, space, radii } }) => ({
-    backgroundColor: fb ? colors.facebookBg : colors.white,
+    backgroundColor: fb ? colors.mediumBlue : colors.white,
     borderRadius: radii.m,
-    padding: space.m2,
+    padding: space.m3,
     paddingLeft: space.l3,
   })}
 `;
 
 const Label = styled(Text)`
   ${({ fb, theme: { colors, space } }) => ({
-    color: fb ? colors.white : colors.darkBg,
+    color: fb ? colors.white : colors.dark,
     marginLeft: space.l2,
   })}
 `;

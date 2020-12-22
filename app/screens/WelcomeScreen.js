@@ -76,7 +76,7 @@ const Wrapper = styled.View`
   justify-content: center;
 
   ${({ theme: { space } }) => ({
-    padding: space.m2,
+    padding: space.m3,
   })}
 `;
 

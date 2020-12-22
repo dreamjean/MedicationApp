@@ -19,7 +19,7 @@ const Container = ({ children, heading, ...rest }) => {
       <Bar>
         <Vector left={-10} top={-5} source={images[3]} />
         <Vector right={6} top={-3} source={images[4]} />
-        <Vector top={90} source={images[5]} />
+        <Vector top={88} source={images[5]} />
         <Vector right={0} top={110} source={images[6]} />
         <Text heading1 center marginTop={125}>
           {heading}
@@ -31,11 +31,11 @@ const Container = ({ children, heading, ...rest }) => {
         IconComponent={AntDesign}
         size={40}
         color={colors.gray}
-        borderColor={colors.whiteShade}
+        borderColor={colors.light}
         onPress={() => navigation.goBack()}
       />
       <LinkingHeader {...rest} />
-      {children}
+      <Wrapper>{children}</Wrapper>
     </View>
   );
 };
@@ -55,6 +55,15 @@ const Vector = styled.Image`
     left,
     right,
     top,
+  })}
+`;
+
+const Wrapper = styled.View`
+  flex: 1;
+
+  ${({ theme: { space } }) => ({
+    padding: space.l1,
+    paddingTop: space.n,
   })}
 `;
 

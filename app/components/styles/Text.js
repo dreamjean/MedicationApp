@@ -57,7 +57,7 @@ const buttonStyle = css`
   text-align: center;
   text-transform: uppercase;
   ${({ primary, dark, theme: { colors, getFont, size } }) => ({
-    color: primary ? colors.white : dark ? colors.darkBg : colors.gray,
+    color: primary ? colors.white : dark ? colors.dark : colors.gray,
     fontFamily: getFont(1),
     fontSize: size.body1,
   })};
@@ -89,7 +89,7 @@ const rightStyle = css`
 
 const Text = styled.Text`
   ${({ upper, marginTop, marginBottom, opacity, primary, dark, theme: { colors } }) => ({
-    color: primary ? colors.primary : dark ? colors.darkBg : colors.grey,
+    color: primary ? colors.primary : dark ? colors.dark : colors.grey,
     marginTop,
     marginBottom,
     textTransform: upper ? 'uppercase' : 'none',
