@@ -14,8 +14,8 @@ const headerStyle = css`
   height: 32px;
 
   ${({ theme: { space } }) => ({
-    marginTop: space.xl,
-    padding: space.l2,
+    marginTop: space.xl2,
+    marginBottom: space.l1,
   })}
 `;
 

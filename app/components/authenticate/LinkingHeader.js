@@ -15,7 +15,7 @@ const LinkingHeader = ({ onLoginFb, onLogInGoogle }) => {
         marginTop={15}
         onPress={onLogInGoogle}
       />
-      <Text button marginTop={40}>
+      <Text button marginTop={30}>
         or log in with email
       </Text>
     </Wrapper>

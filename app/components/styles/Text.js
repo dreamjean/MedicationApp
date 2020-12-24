@@ -83,13 +83,17 @@ const centerStyle = css`
   text-align: center;
 `;
 
+const leftStyle = css`
+  text-align: left;
+`;
+
 const rightStyle = css`
-  text-align: flex-end;
+  text-align: right;
 `;
 
 const Text = styled.Text`
   ${({ upper, marginTop, marginBottom, opacity, primary, dark, theme: { colors } }) => ({
-    color: primary ? colors.primary : dark ? colors.dark : colors.grey,
+    color: primary ? colors.primary : dark ? colors.dark : colors.gray,
     marginTop,
     marginBottom,
     textTransform: upper ? 'uppercase' : 'none',
@@ -109,6 +113,7 @@ const Text = styled.Text`
   /* position */
   ${({ center }) => center && centerStyle}
   ${({ right }) => right && rightStyle}
+  ${({ left }) => left && leftStyle}
 `;
 
 export default Text;

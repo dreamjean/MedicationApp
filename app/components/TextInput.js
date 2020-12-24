@@ -1,36 +1,39 @@
 import { MaterialIcons } from '@expo/vector-icons';
-import React from 'react';
+import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 
 import { colors } from '../constants';
+import Icon from './Icon';
 
-const TextInput = ({ touched, error, icon, ...rest }) => {
+const TextInput = forwardRef(({ touched, error, icon, ...rest }, ref) => {
   const dangerPrimery = error ? colors.danger : colors.primary;
   const reColor = !touched ? colors.lightBule : dangerPrimery;
 
   return (
-    <Container>
-      {icon && <MaterialIcons name={icon} color={reColor} size={24} />}
+    <Container {...{ error, touched }}>
+      {icon && <MaterialIcons name={icon} color={reColor} size={26} />}
       <Input
         {...rest}
-        placeholderTextColor={touched ? colors.violet : colors.gray}
+        {...{ ref }}
+        placeholderTextColor={colors.lightBule}
         selectionColor={colors.primary}
         underlineColorAndroid="transparent"
       />
+      {touched && <Icon iconName={error ? 'close' : 'check'} size={22} backgroundColor={reColor} />}
     </Container>
   );
-};
+});
 
 const Container = styled.View`
   flex-direction: row;
   align-items: center;
 
-  ${({ theme: { colors, radii, space } }) => ({
-    backgroundColor: colors.light,
+  ${({ touched, error, theme: { colors, radii, space } }) => ({
+    backgroundColor: !touched ? colors.light : error ? colors.lightDanger : colors.bg,
     borderRadius: radii.s2,
     paddingVertical: space.m1,
     paddingHorizontal: space.m2,
-    marginVertical: space.m1,
+    marginVertical: space.s2,
   })}
 `;
 
@@ -39,7 +42,7 @@ const Input = styled.TextInput`
 
   ${({ theme: { colors, getFont, space, size } }) => ({
     color: colors.dark,
-    fontSize: size.body1,
+    fontSize: size.body3,
     fontFamily: getFont(2),
     marginHorizontal: space.s2,
   })}

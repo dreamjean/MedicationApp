@@ -1,24 +1,27 @@
 import React from 'react';
-import { RectButton } from 'react-native-gesture-handler';
-import styled from 'styled-components';
+import { Pressable } from 'react-native';
 
 import { colors } from '../constants';
 import Icon from './Icon';
 
-const CheckBox = ({ checked }) => {
+const Checkbox = ({ checked, onPress }) => {
   return (
-    <Container>
+    <Pressable
+      style={({ pressed }) => ({
+        backgroundColor: pressed ? colors.lightBule : colors.white,
+      })}
+      onPress={onPress}
+    >
       <Icon
         backgroundColor={checked ? colors.primary : colors.white}
         borderColor={checked ? colors.primary : colors.gray}
         round={false}
         iconName="check"
         iconRatio={0.8}
+        size={20}
       />
-    </Container>
+    </Pressable>
   );
 };
 
-const Container = styled(RectButton)``;
-
-export default CheckBox;
+export default Checkbox;

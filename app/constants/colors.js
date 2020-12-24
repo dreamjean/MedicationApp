@@ -7,6 +7,7 @@ export default {
   heading: '#3F414E',
   light: '#faf8f5',
   lightBule: '#cfd2fc',
+  lightDanger: '#f9ecec',
   lightGray: '#E5E5E5',
   lightGray2: '#EBEAEC',
   mediumBlue: '#7583CA',

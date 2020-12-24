@@ -35,6 +35,7 @@ export default {
     l2: 30,
     l3: 40,
     xl: 60,
+    xl2: 80,
     xxl: 90,
   },
   radii: {

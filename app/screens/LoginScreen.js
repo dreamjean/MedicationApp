@@ -1,16 +1,23 @@
-import React from 'react';
-// import styled from 'styled-components';
+import React, { useState } from 'react';
 import * as Yup from 'yup';
 
-import { Container } from '../components';
+import { Button, Container } from '../components';
 import { Form, FormField, SubmitButton } from '../components/forms';
+import Text from '../components/styles/Text';
+import View from '../components/styles/View';
+import { colors } from '../constants';
 
 let validationSchema = Yup.object().shape({
   email: Yup.string().required().email('Invalid Email').label('Email'),
   password: Yup.string().required().min(5).max(50).label('Password'),
 });
 
-const SignInScreen = () => {
+const LoginScreen = ({ navigation }) => {
+  const [inputs] = useState({});
+  const focusNextField = (id) => {
+    inputs[id].focus();
+  };
+
   return (
     <Container heading="Welcome back!">
       <Form
@@ -33,12 +40,14 @@ const SignInScreen = () => {
           keyboardType="email-address"
           name="email"
           numberOfLines={1}
-          placeholder="Enter email"
+          onRefSubmit={() => focusNextField('password')}
+          placeholder="Email address"
           returnKeyLabel="next"
           returnKeyType="next"
           textContentType="emailAddress"
         />
         <FormField
+          refName="password"
           allowFontScaling={false}
           autoCapitalize="none"
           autoCompleteType="password"
@@ -49,6 +58,7 @@ const SignInScreen = () => {
           maxLength={50}
           name="password"
           numberOfLines={1}
+          onRef={(input) => (inputs['password'] = input)}
           placeholder="Enter password"
           returnKeyLabel="go"
           returnKeyType="go"
@@ -57,8 +67,25 @@ const SignInScreen = () => {
         />
         <SubmitButton label="Log In" />
       </Form>
+      <Button
+        label="Forgot Password?"
+        textStyle={{ textTransform: 'capitalize', color: colors.dark }}
+        onPress={() => true}
+      />
+      <View linking style={{ marginTop: 40 }}>
+        <Text button left>
+          Alreay have an account?{' '}
+        </Text>
+        <Button
+          label="Sign Up"
+          bgColor="transparent"
+          padding={0}
+          textStyle={{ color: colors.primary }}
+          onPress={() => navigation.navigate('SignUp')}
+        />
+      </View>
     </Container>
   );
 };
 
-export default SignInScreen;
+export default LoginScreen;

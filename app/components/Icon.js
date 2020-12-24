@@ -26,7 +26,7 @@ const Box = styled.View`
   ${({ round, size, backgroundColor, borderColor, theme: { radii } }) => ({
     backgroundColor,
     borderColor,
-    borderWidth: borderColor ? 1 : 0,
+    borderWidth: borderColor ? 2 : 0,
     borderRadius: round ? size / 2 : radii.s1,
     height: size,
     width: size,
