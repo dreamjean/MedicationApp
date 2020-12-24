@@ -3,7 +3,13 @@ import styled from 'styled-components';
 import * as Yup from 'yup';
 
 import { Button, Container } from '../components';
-import { Form, FormCheckbox, FormField, SubmitButton } from '../components/forms';
+import {
+  Form,
+  FormCheckbox,
+  FormField,
+  FormPasswordField,
+  SubmitButton,
+} from '../components/forms';
 import Text from '../components/styles/Text';
 import { colors } from '../constants';
 
@@ -65,7 +71,7 @@ const SignUpScreen = () => {
           returnKeyType="next"
           textContentType="emailAddress"
         />
-        <FormField
+        <FormPasswordField
           allowFontScaling={false}
           autoCapitalize="none"
           autoCompleteType="password"
@@ -80,7 +86,6 @@ const SignUpScreen = () => {
           placeholder="Password"
           returnKeyLabel="go"
           returnKeyType="go"
-          secureTextEntry
           textContentType="password"
         />
         <Wrapper>

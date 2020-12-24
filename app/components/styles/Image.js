@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 import { calender } from '../../constants';
 
-const { BG_HEIGHT } = calender;
+const { BG_HEIGHT, width } = calender;
 
 const bgStyle = css`
   width: 100%;
@@ -13,9 +13,39 @@ const headerStyle = css`
   width: 178px;
   height: 32px;
 
-  ${({ theme: { space } }) => ({
-    marginTop: space.xl2,
+  ${({ white, theme: { space } }) => ({
+    marginTop: white ? space.l2 : space.xl2,
     marginBottom: space.l1,
+  })}
+`;
+
+const cloud1Style = css`
+  width: 55px;
+  height: 30px;
+`;
+
+const cloud2Style = css`
+  width: 100px;
+  height: 55px;
+`;
+
+const dot1Style = css`
+  width: 8px;
+  height: 8px;
+
+  ${({ theme: { space } }) => ({
+    marginLeft: space.l2,
+    marginBottom: space.s1,
+  })}
+`;
+
+const dot2Style = css`
+  width: 14px;
+  height: 14px;
+
+  ${({ theme: { space } }) => ({
+    marginLeft: space.l3,
+    marginBottom: space.s2,
   })}
 `;
 
@@ -24,40 +54,20 @@ const logoStyle = css`
   width: 18px;
 `;
 
-const vector1Style = css`
-  width: 38%;
-  height: 100%;
+const picture1Style = css`
+  width: 320px;
+  height: 270px;
 `;
 
-const vector2Style = css`
-  width: 36%;
-  height: 100%;
-  top: -3px;
-`;
-
-const vector3Style = css`
-  width: 145px;
-  height: 180px;
+const picture2Style = css`
+  width: ${width}px;
+  height: 300px;
+  position: absolute;
+  align-self: center;
 
   ${({ theme: { space } }) => ({
-    marginTop: -space.l1,
-    resizeMode: 'cover',
+    bottom: space.xl,
   })}
-`;
-
-const vector4Style = css`
-  width: 140px;
-  height: 170px;
-
-  ${({ theme: { space } }) => ({
-    marginTop: -space.s1,
-    resizeMode: 'cover',
-  })}
-`;
-
-const pictureStyle = css`
-  width: 340px;
-  height: 280px;
 `;
 
 const Image = styled.Image`
@@ -65,14 +75,15 @@ const Image = styled.Image`
   width: 100%;
   ${{ resizeMode: 'contain' }}
 
-  ${({ header }) => header && headerStyle}
   ${({ bg }) => bg && bgStyle}
+  ${({ cloud1 }) => cloud1 && cloud1Style}
+  ${({ cloud2 }) => cloud2 && cloud2Style}
+  ${({ dot1 }) => dot1 && dot1Style}
+  ${({ dot2 }) => dot2 && dot2Style}
+  ${({ header }) => header && headerStyle}
   ${({ logo }) => logo && logoStyle}
-  ${({ picture }) => picture && pictureStyle}
-  ${({ vector1 }) => vector1 && vector1Style}
-  ${({ vector2 }) => vector2 && vector2Style}
-  ${({ vector3 }) => vector3 && vector3Style}
-  ${({ vector4 }) => vector4 && vector4Style}
+  ${({ picture1 }) => picture1 && picture1Style}
+  ${({ picture2 }) => picture2 && picture2Style}
 `;
 
 export default Image;

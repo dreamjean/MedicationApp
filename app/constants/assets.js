@@ -1,7 +1,7 @@
 export const images = [
-  // welcome 0~2
-  require('../assets/images/bg1.png'),
+  // splash 0~2
   require('../assets/images/logo.png'),
+  require('../assets/images/bg1.png'),
   require('../assets/images/enjoy.png'),
 
   // authenticate 3~8
@@ -11,6 +11,14 @@ export const images = [
   require('../assets/images/vector4.png'),
   require('../assets/images/facebook.png'),
   require('../assets/images/google.png'),
+
+  // welcome 9~14
+  require('../assets/images/logoWhite.png'),
+  require('../assets/images/cloud.png'),
+  require('../assets/images/partialCloud.png'),
+  require('../assets/images/smallEllipse1.png'),
+  require('../assets/images/smallEllipse2.png'),
+  require('../assets/images/yogi.png'),
 
   //topics
   require('../assets/images/topics/topic1cardbg.png'),
@@ -38,7 +46,6 @@ export const images = [
   require('../assets/images/recommend2.png'),
 
   require('../assets/images/relaxationimg.png'),
-  require('../assets/images/yogi.png'),
 
   require('../assets/images/courseSun.png'),
 ];

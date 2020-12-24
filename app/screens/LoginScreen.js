@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import * as Yup from 'yup';
 
 import { Button, Container } from '../components';
-import { Form, FormField, SubmitButton } from '../components/forms';
+import { Form, FormField, FormPasswordField, SubmitButton } from '../components/forms';
 import Text from '../components/styles/Text';
 import View from '../components/styles/View';
 import { colors } from '../constants';
@@ -46,7 +46,7 @@ const LoginScreen = ({ navigation }) => {
           returnKeyType="next"
           textContentType="emailAddress"
         />
-        <FormField
+        <FormPasswordField
           refName="password"
           allowFontScaling={false}
           autoCapitalize="none"

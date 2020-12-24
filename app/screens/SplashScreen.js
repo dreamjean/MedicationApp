@@ -15,9 +15,9 @@ const SplashScreen = ({ navigation }) => {
   return (
     <View container>
       <HeaderBar>
-        <ImageBackground heading source={images[0]}>
-          <Image header source={images[1]} />
-          <Image picture source={images[2]} />
+        <ImageBackground heading source={images[1]}>
+          <Image header source={images[0]} />
+          <Image picture1 source={images[2]} />
         </ImageBackground>
       </HeaderBar>
       <TextBox>

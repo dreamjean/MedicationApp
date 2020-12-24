@@ -22,7 +22,7 @@ export default {
     title1: 20,
     title2: 24,
     heading1: 26,
-    heading2: 30,
+    heading2: 28,
   },
   space: {
     n: 0,
@@ -44,6 +44,7 @@ export default {
     s2: 10,
     m: 25,
     l: 50,
+    xl: 130,
   },
 
   getFont,

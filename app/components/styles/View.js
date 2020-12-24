@@ -18,9 +18,23 @@ const linkingStyle = css`
   })}
 `;
 
+const inputBoxStyle = css`
+  flex-direction: row;
+  align-items: center;
+
+  ${({ touched, error, theme: { colors, radii, space } }) => ({
+    backgroundColor: !touched ? colors.light : error ? colors.lightDanger : colors.bg,
+    borderRadius: radii.s2,
+    paddingVertical: space.m1,
+    paddingHorizontal: space.m2,
+    marginVertical: space.s2,
+  })}
+`;
+
 const View = styled.View`
   ${({ container }) => container && containerStyle}
   ${({ linking }) => linking && linkingStyle}
+  ${({ inputBox }) => inputBox && inputBoxStyle}
 `;
 
 export default View;
