@@ -3,21 +3,21 @@ import React, { forwardRef } from 'react';
 
 import { colors } from '../constants';
 import IconButton from './IconButton';
-import Input from './styles/Input';
+import RNTextInput from './styles/RNTextInput';
 import View from './styles/View';
 
 const PasswordInput = forwardRef(
   ({ touched, error, icon, secureTextEntry, onPress, ...rest }, ref) => {
     const dangerPrimery = error ? colors.danger : colors.primary;
-    const reColor = !touched ? colors.lightBule : dangerPrimery;
+    const reColor = !touched ? colors.lightBlue : dangerPrimery;
 
     return (
       <View inputBox {...{ error, touched }}>
         {icon && <MaterialIcons name={icon} color={reColor} size={26} />}
-        <Input
+        <RNTextInput
           {...rest}
           {...{ ref }}
-          placeholderTextColor={colors.lightBule}
+          placeholderTextColor={colors.lightBlue}
           selectionColor={colors.primary}
           underlineColorAndroid="transparent"
           secureTextEntry={secureTextEntry}

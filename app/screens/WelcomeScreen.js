@@ -1,10 +1,11 @@
+import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import styled from 'styled-components';
 
 import { Button } from '../components';
 import Image from '../components/styles/Image';
 import Text from '../components/styles/Text';
-import { colors, images } from '../constants';
+import { calender, colors, images } from '../constants';
 
 const WelcomeScreen = () => {
   return (
@@ -31,16 +32,23 @@ const WelcomeScreen = () => {
         <CircleBack color={colors.lightBlue1}>
           <CircleBack color={colors.lightBlue2}>
             <CircleBack color={colors.lightBlue3}>
-              <CircleCenter>
-                <Image picture2 source={images[14]} />
-              </CircleCenter>
+              <CircleCenter />
             </CircleBack>
           </CircleBack>
         </CircleBack>
       </CircleBox>
-      <Footer>
-        <Button label="Get Started" bgColor={colors.lightGray} dark onPress={() => true} />
-      </Footer>
+      <Wrapper>
+        <Image picture2 source={images[14]} />
+        <Footer>
+          <Button
+            label="Get Started"
+            textStyle={{ color: colors.mediumBlue }}
+            bgColor={colors.lightGray}
+            onPress={() => true}
+          />
+        </Footer>
+      </Wrapper>
+      <StatusBar style="light" />
     </Container>
   );
 };
@@ -103,13 +111,18 @@ const CircleCenter = styled.View`
   })}
 `;
 
-const Footer = styled.View`
-  height: 195px;
-  justify-content: center;
+const Wrapper = styled.View`
+  align-items: center;
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
+`;
+
+const Footer = styled.View`
+  height: ${calender.FOOTER_HEIGHT}px;
+  width: 100%;
+  justify-content: center;
 
   ${({ theme: { colors, space } }) => ({
     backgroundColor: colors.primary,

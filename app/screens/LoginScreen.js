@@ -14,8 +14,8 @@ let validationSchema = Yup.object().shape({
 
 const LoginScreen = ({ navigation }) => {
   const [inputs] = useState({});
-  const focusNextField = (id) => {
-    inputs[id].focus();
+  const focusNextField = (nextField) => {
+    inputs[nextField].focus();
   };
 
   return (
@@ -35,6 +35,7 @@ const LoginScreen = ({ navigation }) => {
           autoCapitalize="none"
           autoCompleteType="email"
           autoCorrect={false}
+          blurOnSubmit={false}
           icon="email"
           keyboardAppearance="default"
           keyboardType="email-address"

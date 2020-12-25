@@ -1,29 +1,26 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import * as Yup from 'yup';
 
-import { Button, Container } from '../components';
+import { Container } from '../components';
 import {
   Form,
-  FormCheckbox,
   FormField,
   FormPasswordField,
+  PrivacePolicyCheckbox,
   SubmitButton,
 } from '../components/forms';
-import Text from '../components/styles/Text';
-import { colors } from '../constants';
 
 let validationSchema = Yup.object().shape({
   name: Yup.string().required().label('Name'),
   email: Yup.string().required().email('Invalid Email').label('Email'),
   password: Yup.string().required().min(5).max(50).label('Password'),
-  checked: Yup.boolean(),
+  checked: Yup.bool().oneOf([true], 'Privace Policy must be checked!'),
 });
 
-const SignUpScreen = () => {
+const SignUpScreen = ({ navigation }) => {
   const [inputs] = useState({});
-  const focusNextField = (id) => {
-    inputs[id].focus();
+  const focusNextField = (nextField) => {
+    inputs[nextField].focus();
   };
 
   return (
@@ -31,11 +28,9 @@ const SignUpScreen = () => {
       <Form
         initialValues={{ name: '', email: '', password: '', checked: false }}
         validationSchema={validationSchema}
-        onSubmit={(values, actions) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            actions.setSubmitting(false);
-          }, 1000);
+        onSubmit={(values) => {
+          if (values.checked) navigation.navigate('Welcome');
+          else return;
         }}
       >
         <FormField
@@ -43,6 +38,7 @@ const SignUpScreen = () => {
           autoCapitalize="none"
           autoCompleteType="username"
           autoCorrect={false}
+          blurOnSubmit={false}
           icon="account-circle"
           keyboardAppearance="default"
           keyboardType="default"
@@ -59,6 +55,7 @@ const SignUpScreen = () => {
           autoCapitalize="none"
           autoCompleteType="email"
           autoCorrect={false}
+          blurOnSubmit={false}
           icon="email"
           keyboardAppearance="default"
           keyboardType="email-address"
@@ -88,38 +85,11 @@ const SignUpScreen = () => {
           returnKeyType="go"
           textContentType="password"
         />
-        <Wrapper>
-          <TextBox>
-            <Text body1>I have read the </Text>
-            <Button
-              label="Privace Policy"
-              textStyle={{ textTransform: 'capitalize', color: colors.mediumBlue, fontSize: 16 }}
-              onPress={() => true}
-              padding={0}
-            />
-          </TextBox>
-          <FormCheckbox name="checked" />
-        </Wrapper>
+        <PrivacePolicyCheckbox name="checked" onReadPress={() => true} />
         <SubmitButton label="Get Started" />
       </Form>
     </Container>
   );
 };
-
-const Wrapper = styled.View`
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-
-  ${({ theme: { space } }) => ({
-    paddingHorizontal: space.s2,
-    paddingVertical: space.m1,
-  })}
-`;
-
-const TextBox = styled.View`
-  flex-direction: row;
-  align-items: center;
-`;
 
 export default SignUpScreen;

@@ -24,7 +24,7 @@ const SplashScreen = ({ navigation }) => {
         <Text heading1 center>
           We are what we do
         </Text>
-        <Text body2 center marginTop={10} opacity={0.35}>
+        <Text body2 center marginTop={10} opacity={0.65}>
           Thousand of people are using silent moon for smalls meditation
         </Text>
       </TextBox>

@@ -61,18 +61,11 @@ const picture1Style = css`
 
 const picture2Style = css`
   width: ${width}px;
-  height: 300px;
-  position: absolute;
-  align-self: center;
-
-  ${({ theme: { space } }) => ({
-    bottom: space.xl,
-  })}
+  height: 260px;
+  ${{ resizeMode: 'cover' }}
 `;
 
 const Image = styled.Image`
-  height: 100%;
-  width: 100%;
   ${{ resizeMode: 'contain' }}
 
   ${({ bg }) => bg && bgStyle}
